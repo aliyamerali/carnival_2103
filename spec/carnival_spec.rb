@@ -74,11 +74,17 @@ RSpec.describe Carnival do
     end
 
     it '#attendees_by_ride_interest returns hash of [rides => interested attendee objects]' do
-      expected = jeffco_fair.attendees_by_ride_interest
-      
-      expect(expected.class).to eq(Hash)
-      expect(expected[scrambler]).to eq([])
-      expect(expected[bumper_cars]).to eq([bob, sally, johnny])
+      output = jeffco_fair.attendees_by_ride_interest
+
+      expect(output.class).to eq(Hash)
+      expect(output[scrambler]).to eq([])
+      expect(output[bumper_cars]).to eq([bob, sally, johnny])
+    end
+
+    it '#ticket_lottery_contestants returns array of attendee objs with interest in the given ride and not enough $ for ride' do
+      output = jeffco_fair.ticket_lottery_contestants(bumper_cars)
+
+      expect(output).to eq([bob, johnny])
     end
   end
 
