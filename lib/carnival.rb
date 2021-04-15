@@ -31,4 +31,10 @@ class Carnival
     end
     attendees_by_ride_interest
   end
+
+  def ticket_lottery_contestants(ride)
+    @attendees.find_all do |attendee|
+      attendee.interests.include?(ride.name) && attendee.spending_money < ride.cost
+    end
+  end
 end
