@@ -5,4 +5,8 @@ class Carnival
     @name = name
     @rides = []
   end
+
+  def add_ride(new_ride)
+    @rides << new_ride
+  end
 end
