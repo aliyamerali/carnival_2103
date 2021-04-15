@@ -12,9 +12,8 @@ class Carnival
   end
 
   def recommend_rides(attendee)
-    attendee_interests = attendee.interests
     @rides.find_all do |ride|
-      attendee_interests.include?(ride.name)
+      attendee.interested_in?(ride.name)
     end
   end
 
@@ -26,7 +25,7 @@ class Carnival
     attendees_by_ride_interest = {}
     @rides.each do |ride|
       attendees_by_ride_interest[ride] = @attendees.find_all do |attendee|
-        attendee.interests.include?(ride.name) #REFACTOR --> Helper method in Attendee (interests_include?)
+        attendee.interested_in?(ride.name)
       end
     end
     attendees_by_ride_interest
@@ -34,7 +33,7 @@ class Carnival
 
   def ticket_lottery_contestants(ride)
     @attendees.find_all do |attendee|
-      attendee.interests.include?(ride.name) && attendee.spending_money < ride.cost
+      attendee.interested_in?(ride.name) && attendee.spending_money < ride.cost
     end
   end
 
