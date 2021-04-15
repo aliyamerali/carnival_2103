@@ -82,9 +82,17 @@ RSpec.describe Carnival do
     end
 
     it '#ticket_lottery_contestants returns array of attendee objs with interest in the given ride and not enough $ for ride' do
-      output = jeffco_fair.ticket_lottery_contestants(bumper_cars)
+      contestants = jeffco_fair.ticket_lottery_contestants(bumper_cars)
 
-      expect(output).to eq([bob, johnny])
+      expect(contestants).to eq([bob, johnny])
+    end
+
+    it '#draw_lottery_winner returns a random attendee from contestants list' do
+      allow(jeffco_fair).to receive(:sample) do
+        1
+      end
+
+      expect(jeffco_fair.draw_lottery_winner(bumper_cars)).to eq("Johnny")
     end
   end
 
