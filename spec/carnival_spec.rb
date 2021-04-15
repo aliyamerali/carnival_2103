@@ -91,12 +91,20 @@ RSpec.describe Carnival do
       allow(jeffco_fair).to receive(:rand) do
         johnny
       end
-      
+
       expect(jeffco_fair.draw_lottery_winner(bumper_cars)).to eq("Johnny")
     end
 
     it '#draw_lottery_winner returns nil if no contestants are eligible' do
       expect(jeffco_fair.draw_lottery_winner(ferris_wheel)).to eq(nil)
+    end
+
+    it `#announce_lottery_winner returns a string with the winner name and ride` do
+      allow(jeffco_fair).to receive(:draw_lottery_winner) do
+        "Bob"
+      end
+
+      expect(jeffco_fair.announce_lottery_winner(scrambler)).to eq("Bob has won a ride on the scrambler")
     end
   end
 
