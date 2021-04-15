@@ -22,13 +22,12 @@ class Carnival
   end
 
   def attendees_by_ride_interest
-    attendees_by_ride_interest = {}
-    @rides.each do |ride|
+    @rides.reduce({}) do |attendees_by_ride_interest, ride|
       attendees_by_ride_interest[ride] = @attendees.find_all do |attendee|
         attendee.interested_in?(ride.name)
-      end
+        end
+      attendees_by_ride_interest
     end
-    attendees_by_ride_interest
   end
 
   def ticket_lottery_contestants(ride)
