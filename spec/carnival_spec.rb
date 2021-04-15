@@ -94,6 +94,10 @@ RSpec.describe Carnival do
 
       expect(jeffco_fair.draw_lottery_winner(bumper_cars)).to eq("Johnny")
     end
+
+    it '#draw_lottery_winner returns nil if no contestants are eligible' do
+      expect(jeffco_fair.draw_lottery_winner(ferris_wheel)).to eq(nil)
+    end
   end
 
 end
