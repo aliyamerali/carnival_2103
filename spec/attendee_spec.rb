@@ -28,14 +28,14 @@ RSpec.describe Attendee do
     end
   end
 
-  describe '#interests_include?' do
+  describe '#interested_in?' do
     attendee = Attendee.new('Bob', 20)
     attendee.add_interest('Bumper Cars')
     attendee.add_interest('Ferris Wheel')
 
     it 'returns true or false if the interest passed in is included' do
-      expect(attendee.interests_include?("Bumper Cars")).to eq(true)
-      expect(attendee.interests_include?("Scrambler")).to eq(false)
+      expect(attendee.interested_in?("Bumper Cars")).to eq(true)
+      expect(attendee.interested_in?("Scrambler")).to eq(false)
     end
   end
 

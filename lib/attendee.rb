@@ -11,4 +11,8 @@ class Attendee
     @interests << new_interest
   end
 
+  def interested_in?(interest)
+    @interests.include?(interest)
+  end
+
 end
