@@ -47,4 +47,9 @@ class Carnival
       nil
     end
   end
+
+  def announce_lottery_winner(ride)
+    winner = draw_lottery_winner(ride)
+    "#{winner} has won a ride on the #{ride.name}"
+  end
 end

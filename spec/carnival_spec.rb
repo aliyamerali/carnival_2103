@@ -99,12 +99,12 @@ RSpec.describe Carnival do
       expect(jeffco_fair.draw_lottery_winner(ferris_wheel)).to eq(nil)
     end
 
-    it `#announce_lottery_winner returns a string with the winner name and ride` do
+    it '#announce_lottery_winner returns a string with the winner name and ride' do
       allow(jeffco_fair).to receive(:draw_lottery_winner) do
         "Bob"
       end
 
-      expect(jeffco_fair.announce_lottery_winner(scrambler)).to eq("Bob has won a ride on the scrambler")
+      expect(jeffco_fair.announce_lottery_winner(scrambler)).to eq("Bob has won a ride on the Scrambler")
     end
   end
 
