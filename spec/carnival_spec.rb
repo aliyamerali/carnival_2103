@@ -104,7 +104,7 @@ RSpec.describe Carnival do
         "Bob"
       end
 
-      expect(jeffco_fair.announce_lottery_winner(scrambler)).to eq("Bob has won a ride on the Scrambler")
+      expect(jeffco_fair.announce_lottery_winner(scrambler)).to eq("Bob has won the Scrambler ride")
     end
 
     it '#announce_lottery_winner returns a string when there is no contestants' do

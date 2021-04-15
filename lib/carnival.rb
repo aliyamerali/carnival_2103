@@ -51,7 +51,7 @@ class Carnival
   def announce_lottery_winner(ride)
     winner = draw_lottery_winner(ride)
     if winner != nil
-      "#{winner} has won a ride on the #{ride.name}"
+      "#{winner} has won the #{ride.name} ride"
     else
       "No winners for this lottery"
     end
