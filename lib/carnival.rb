@@ -21,4 +21,14 @@ class Carnival
   def admit(new_attendee)
     @attendees << new_attendee
   end
+
+  def attendees_by_ride_interest
+    attendees_by_ride_interest = {}
+    @rides.each do |ride|
+      attendees_by_ride_interest[ride] = @attendees.find_all do |attendee|
+        attendee.interests.include?(ride.name) #REFACTOR --> Helper method?
+      end
+    end
+    attendees_by_ride_interest
+  end
 end
