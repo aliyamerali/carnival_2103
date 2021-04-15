@@ -72,6 +72,14 @@ RSpec.describe Carnival do
 
       expect(jeffco_fair.attendees).to eq([bob, sally, johnny])
     end
+
+    it '#attendees_by_ride_interest returns hash of [rides => interested attendee objects]' do
+      expected = jeffco_fair.attendees_by_ride_interest
+      
+      expect(expected.class).to eq(Hash)
+      expect(expected[scrambler]).to eq([])
+      expect(expected[bumper_cars]).to eq([bob, sally, johnny])
+    end
   end
 
 end
