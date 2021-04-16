@@ -39,7 +39,7 @@ class Carnival
   def draw_lottery_winner(ride)
     contestants = ticket_lottery_contestants(ride)
     if contestants != []
-      winner_attendee = rand(contestants)
+      winner_attendee = contestants.sample
       winner_attendee.name
     else
       nil

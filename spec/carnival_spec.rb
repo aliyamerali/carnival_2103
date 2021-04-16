@@ -88,8 +88,8 @@ RSpec.describe Carnival do
     end
 
     it '#draw_lottery_winner returns a random attendee from contestants list' do
-      allow(jeffco_fair).to receive(:rand) do
-        johnny
+      allow(jeffco_fair).to receive(:ticket_lottery_contestants).with(bumper_cars) do
+        [johnny]
       end
 
       expect(jeffco_fair.draw_lottery_winner(bumper_cars)).to eq("Johnny")
